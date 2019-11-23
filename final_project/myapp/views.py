@@ -1,14 +1,31 @@
-from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
+from django.views import generic
+
+from .models import squirrel_data
 
 # Create your views here.
 
-def hello(request):
-   return render(request, 'myapp/hello.html', {})
+def map(request):
+   return render(request, 'myapp/map.html', {})
 
-def morning(request):
-   return render(request, 'myapp/morning.html', {})
+class sightings(generic.ListView):
+   template_name = 'myapp/sightings.html'
+   def get_queryset(self):
+      return squirrel_data.objects.all()
+   #return render(request, 'myapp/sightings.html', {})
 
-def viewArticle(request, articleId):
-   text = f"Displaying article Number : {articleId}"
-   return HttpResponse(text)
+class edit(generic.DetailView):
+   model = squirrel_data
+   template_name = 'myapp/edit.html'
+   def get_queryset(self):
+      return squirrel_data.objects.filter(unique_squirrel_id=unque_squirrel_id)
+   #return render(request, 'myapp/edit.html', {})
+
+def add(request):
+   return render(request, 'myapp/add.html', {})
+
+def stat(request):
+   return render(request, 'myapp/stat.html', {})
