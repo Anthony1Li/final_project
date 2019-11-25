@@ -2,24 +2,17 @@ from django.db import models
 
 # Create your models here.
 
-
 class squirrel_data(models.Model):
     def __str__(self):
         return self.unqiue_squirrel_id
     latitude = models.FloatField()
     longitude= models.FloatField()
     unqiue_squirrel_id = models.CharField(max_length=200)
-    #hectare=models.CharField(max_length=200)
     shift=models.CharField(max_length=200)
     date=models.DateField()
-    #hectare_squirrel_number=models.IntegerField()
     age=models.CharField(max_length=200)
     primary_fur_color=models.CharField(max_length=200)
-    #highlight_fur_color=models.CharField(max_length=200)
-    #combination_of_primary_and_highlight_color=models.CharField(max_length=200)
-    #color_notes=models.CharField(max_length=200)
     location=models.CharField(max_length=200)
-    #above_ground_sighter_measurement=models.CharField(max_length=200)
     specific_location=models.CharField(max_length=200)
     running=models.BooleanField()
     chasing=models.BooleanField()
@@ -35,6 +28,30 @@ class squirrel_data(models.Model):
     approaches=models.BooleanField()
     indifferent=models.BooleanField()
     runs_from=models.BooleanField()
-    #other_interaction=models.CharField(max_length=200)
-    #lat_long=models.CharField(max_length=200)
 
+class squirrelForm(ModelForm):
+     class Meta:
+         model = squirrel_data
+         fields = ['latitude',
+         'longitude',
+         'unqiue_squirrel_id',
+         'shift',
+         'date',
+         'age',
+         'primary_fur_color',
+         'location',
+         'specific_location',
+         'running',
+         'chasing',
+         'climbing',
+         'eating',
+         'foraging',
+         'other_activities',
+         'kuks',
+         'quaas',
+         'moans',
+         'tail_flags',
+         'tail_twitches',
+         'approaches',
+         'indifferent',
+         'runs_from']

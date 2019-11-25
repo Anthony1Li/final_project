@@ -1,0 +1,56 @@
+<a href="/myapp/sightings/add/">add a new sighting</a>
+<table border="1">
+    <tr>
+        <th>latitude</th>
+        <th>longitude</th>
+        <th>unqiue_squirrel_id</th>
+        <th>shift</th>
+        <th>date</th>
+        <th>age</th>
+        <th>primary_fur_color</th>
+        <th>location</th>
+        <th>specific_location</th>
+        <th>running</th>
+        <th>chasing</th>
+        <th>climbing</th>
+        <th>eating</th>
+        <th>foraging</th>
+        <th>other_activities</th>
+        <th>kuks</th>
+        <th>quaas</th>
+        <th>moans</th>
+        <th>tail_flags</th>
+        <th>tail_twitches</th>
+        <th>approaches</th>
+        <th>indifferent</th>
+        <th>runs_from</th> 
+    </tr>
+    {% for row in sq_data %}
+    <tr>
+        <td>{{row.latitude}}</td>
+        <td>{{row.longitude}}</td>
+        <td>{{row.unqiue_squirrel_id}}</td>
+        <td>{{row.shift}}</td>
+        <td>{{row.date}}</td>
+        <td>{{row.age}}</td>
+        <td>{{row.primary_fur_color}}</td>
+        <td>{{row.location}}</td>
+        <td>{{row.specific_location}}</td>
+        <td>{{row.running}}</td>
+        <td>{{row.chasing}}</td>
+        <td>{{row.climbing}}</td>
+        <td>{{row.eating}}</td>
+        <td>{{row.foraging}}</td>
+        <td>{{row.other_activities}}</td>
+        <td>{{row.kuks}}</td>
+        <td>{{row.quaas}}</td>
+        <td>{{row.moans}}</td>
+        <td>{{row.tail_flags}}</td>
+        <td>{{row.tail_twitches}}</td>
+        <td>{{row.approaches}}</td>
+        <td>{{row.indifferent}}</td>
+        <td>{{row.runs_from}}</td>
+        <td><a href="/myapp/sightings/{{row.unqiue_squirrel_id}}/">edit this sighting</a></td>
+    </tr>
+    {% endfor %}
+</table>
