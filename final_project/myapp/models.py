@@ -4,22 +4,22 @@ from django.db import models
 
 class squirrel_data(models.Model):
     def __str__(self):
-        return self.unqiue_squirrel_id
+        return self.unique_squirrel_id
     latitude = models.FloatField()
     longitude= models.FloatField()
-    unqiue_squirrel_id = models.CharField(max_length=200)
-    shift=models.CharField(max_length=200)
-    date=models.DateField()
-    age=models.CharField(max_length=200)
-    primary_fur_color=models.CharField(max_length=200)
-    location=models.CharField(max_length=200)
-    specific_location=models.CharField(max_length=200)
+    unique_squirrel_id = models.CharField(max_length=200,unique=True)
+    shift=models.CharField(max_length=200, null=True, blank=True)
+    date=models.DateField(null=True, blank=True)
+    age=models.CharField(max_length=200, null=True, blank=True)
+    primary_fur_color=models.CharField(max_length=200, null=True, blank=True)
+    location=models.CharField(max_length=200, null=True, blank=True)
+    specific_location=models.CharField(max_length=200, null=True, blank=True)
     running=models.BooleanField()
     chasing=models.BooleanField()
     climbing=models.BooleanField()
     eating=models.BooleanField()
     foraging=models.BooleanField()
-    other_activities=models.CharField(max_length=200)
+    other_activities=models.CharField(max_length=200, null=True, blank=True)
     kuks=models.BooleanField()
     quaas=models.BooleanField()
     moans=models.BooleanField()
@@ -28,30 +28,3 @@ class squirrel_data(models.Model):
     approaches=models.BooleanField()
     indifferent=models.BooleanField()
     runs_from=models.BooleanField()
-
-class squirrelForm(ModelForm):
-     class Meta:
-         model = squirrel_data
-         fields = ['latitude',
-         'longitude',
-         'unqiue_squirrel_id',
-         'shift',
-         'date',
-         'age',
-         'primary_fur_color',
-         'location',
-         'specific_location',
-         'running',
-         'chasing',
-         'climbing',
-         'eating',
-         'foraging',
-         'other_activities',
-         'kuks',
-         'quaas',
-         'moans',
-         'tail_flags',
-         'tail_twitches',
-         'approaches',
-         'indifferent',
-         'runs_from']

@@ -16,7 +16,7 @@ class Command(BaseCommand):
                 _, created = squirrel_data.objects.get_or_create(
                     latitude = row[0],
                     longitude= row[1],
-                    unqiue_squirrel_id = row[2],
+                    unique_squirrel_id = row[2],
                     shift = row[4],
                     date = row[5][4:8]+'-'+ row[5][0:2]+'-'+ row[5][2:4],
                     age = row[7],
