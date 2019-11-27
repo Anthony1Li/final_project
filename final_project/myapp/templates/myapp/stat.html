@@ -5,11 +5,21 @@
     <title>stats of sightings</title>
 </head>
 <body>
-    <h2>Unordered List with Square Bullets</h2>
+    <h2>Statistics of sightings data of squirrels</h2>
     <ul style="list-style-type:square;">
-        <li>{{a.min_latitude}}</li>
-        <li>Tea</li>
-        <li>Milk</li>
+        <li>Total number of sightings: {{a}}</li>
+        <br>
+        <li>Latitiude：min-{{b.min_latitude}}</li>
+        <li>Latitiude：max-{{b.max_latitude}}</li>
+        <li>Latitiude：average-{{b.average_latitude}}</li>
+        <br>
+        <li>longitude：min-{{c.min_longitude}}</li>
+        <li>longitude：max-{{c.max_longitude}}</li>
+        <li>longitude：average-{{c.average_longitude}}</li>
+        <br>
+        <li>shift: {{d.0.0}}: {{d.0.1}}, {{d.1.0}}: {{d.1.1}}</li>
+        <br>
+        <li>shift: {{e}}</li>
     </ul>
 
 </body>

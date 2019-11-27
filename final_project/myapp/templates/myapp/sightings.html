@@ -1,5 +1,7 @@
+
 <a href="/myapp/sightings/add">add a new sighting</a>
-<table border="1">
+<table border="1" class="table table-bordered">
+    <thead>
     <tr>
         <th>latitude</th>
         <th>longitude</th>
@@ -25,7 +27,9 @@
         <th>indifferent</th>
         <th>runs_from</th> 
     </tr>
-    {% for row in sq_data %}
+    </thead>
+    <tbody>
+    {% for row in users %}
     <tr>
         <td>{{row.latitude}}</td>
         <td>{{row.longitude}}</td>
@@ -54,4 +58,23 @@
         <td><a href="/myapp/sightings/{{row.unique_squirrel_id}}/delete/">delete</a></td>
     </tr>
     {% endfor %}
+    </tbody>
 </table>
+
+
+<div class="pagination">
+
+        {% if users.has_previous %}
+        <a href="?page=1">First</a>
+        <a href="?page={{ users.previous_page_number }}">Previous</a>
+        {% endif %}
+      
+        <span>{{ users.number }}</span>
+        <span">of</span>
+        <span>{{ users.paginator.num_pages }}</span>
+      
+        {% if users.has_next %}
+        <a href="?page={{ users.next_page_number }}">Next</a>
+        <a href="?page={{ users.paginator.num_pages }}">Last</a>
+        {% endif %}
+      </div>
