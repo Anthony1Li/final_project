@@ -9,8 +9,9 @@ from .models import squirrel_data
 
 # Create your views here.
 
-# def map(request):
-#    return render(request, 'myapp/map.html', {})
+def map(request):
+   map_squirrel = squirrel_data.objects.all()[:100]
+   return render(request, 'myapp/map.html', {"map_squirrel":map_squirrel})
 
 def sightings(request):
    sq_data=squirrel_data.objects.all()
