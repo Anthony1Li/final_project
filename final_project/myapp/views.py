@@ -3,7 +3,8 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from django.views import generic
 from .forms import squirrelForm
-from django.db.models import Avg, Max, Min
+from django.db.models import Avg, Max, Min, Count
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import squirrel_data
 
@@ -15,7 +16,16 @@ def map(request):
 
 def sightings(request):
    sq_data=squirrel_data.objects.all()
-   return render(request, 'myapp/sightings.html', {'sq_data':sq_data})
+   page = request.GET.get('page', 1)
+
+   paginator = Paginator(sq_data, 10)
+   try:
+      users = paginator.page(page)
+   except PageNotAnInteger:
+      users = paginator.page(1)
+   except EmptyPage:
+      users = paginator.page(paginator.num_pages)
+   return render(request, 'myapp/sightings.html', {'users':users})
 
 
 def edit(request, unique_squirrel_id):
@@ -52,8 +62,9 @@ def delete(request, unique_squirrel_id):
 
 def stat(request):
    sq_data=squirrel_data.objects.all()
-
-   a=sq_data.aggregate(min_latitude=Min('latitude'),max_latitude=Max('latitude'),average_latitude=Avg('latitude'))
-   #sq_data.aggregate()
-   #return HttpResponse("{{a}}")
-   return render(request, 'myapp/stat.html', {"a":a})
+   a=len(sq_data)
+   b=sq_data.aggregate(min_latitude=Min('latitude'),max_latitude=Max('latitude'),average_latitude=Avg('latitude'))
+   c=sq_data.aggregate(min_longitude=Min('longitude'),max_longitude=Max('longitude'),average_longitude=Avg('longitude'))
+   d=list(sq_data.values_list('shift').annotate(Count('shift')))
+   e=list(sq_data.values_list('age').annotate(Count('age')))
+   return render(request, 'myapp/stat.html', {"a":a,"b":b,"c":c,"d":d,"e":e})
