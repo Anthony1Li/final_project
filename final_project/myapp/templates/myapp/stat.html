@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>stats of sightings</title>
 </head>
-<body>
-    <h2>Statistics of sightings data of squirrels</h2>
+<body style="background-color:powderblue;">
+    <h2 style="font-family:verdana;text-align:center;">Statistics of sightings data of squirrels</h2>
     <ul style="list-style-type:square;">
         <li>Total number of sightings: {{a}}</li>
         <br>
@@ -17,9 +17,11 @@
         <li>longitude：max-{{c.max_longitude}}</li>
         <li>longitude：average-{{c.average_longitude}}</li>
         <br>
-        <li>shift: {{d.0.0}}: {{d.0.1}}, {{d.1.0}}: {{d.1.1}}</li>
+        <li>shift: {{d}}</li>
         <br>
-        <li>shift: {{e}}</li>
+        <li>age: {{e}}</li>
+        <br>
+        <li>primary_fur_color: {{f}}</li>
     </ul>
 
 </body>

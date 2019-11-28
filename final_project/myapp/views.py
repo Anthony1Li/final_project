@@ -9,6 +9,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import squirrel_data
 
 # Create your views here.
+def home(request):
+   return render(request, 'myapp/home.html', {})
 
 def map(request):
    map_squirrel = squirrel_data.objects.all()[:100]
@@ -67,4 +69,5 @@ def stat(request):
    c=sq_data.aggregate(min_longitude=Min('longitude'),max_longitude=Max('longitude'),average_longitude=Avg('longitude'))
    d=list(sq_data.values_list('shift').annotate(Count('shift')))
    e=list(sq_data.values_list('age').annotate(Count('age')))
-   return render(request, 'myapp/stat.html', {"a":a,"b":b,"c":c,"d":d,"e":e})
+   f=list(sq_data.values_list('primary_fur_color').annotate(Count('primary_fur_color')))
+   return render(request, 'myapp/stat.html', {"a":a,"b":b,"c":c,"d":d,"e":e,"f":f})

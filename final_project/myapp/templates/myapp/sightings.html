@@ -1,6 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sightings</title>
+</head>
+<body style="background-color:powderblue;">
 <center><h2>Sightings of Squirrels</h2></center>
+<center><a href="/myapp/sightings/add">add a new sighting</a></center>
+<br>
 <table border="1" class="table table-bordered">
-    <thead>
+    <thead style="background-color:cadetblue;">
     <tr>
         <th>latitude</th>
         <th>longitude</th>
@@ -27,9 +36,11 @@
         <th>runs_from</th> 
     </tr>
     </thead>
-    <tbody>
+    <tbody  style="background-color:rgb(219, 234, 236);">
     {% for row in users %}
     <tr>
+        <td><a href="/myapp/sightings/{{row.unique_squirrel_id}}/">edit</a></td>
+        <td><a href="/myapp/sightings/{{row.unique_squirrel_id}}/delete/">delete</a></td>
         <td>{{row.latitude}}</td>
         <td>{{row.longitude}}</td>
         <td>{{row.unique_squirrel_id}}</td>
@@ -53,13 +64,10 @@
         <td>{{row.approaches}}</td>
         <td>{{row.indifferent}}</td>
         <td>{{row.runs_from}}</td>
-        <td><a href="/myapp/sightings/{{row.unique_squirrel_id}}/">edit</a></td>
-        <td><a href="/myapp/sightings/{{row.unique_squirrel_id}}/delete/">delete</a></td>
     </tr>
     {% endfor %}
     </tbody>
 </table>
-<a href="/myapp/sightings/add">add a new sighting</a>
 
 <div class="pagination">
 
@@ -77,3 +85,5 @@
         <a href="?page={{ users.paginator.num_pages }}">Last</a>
         {% endif %}
       </div>
+</body>
+</html>
