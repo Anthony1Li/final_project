@@ -36,5 +36,4 @@ class Command(BaseCommand):
                     tail_twitches = True if row[25].lower()=='true' else False,
                     approaches = True if row[26].lower()=='true' else False,
                     indifferent = True if row[27].lower()=='true' else False,
-                    runs_from = True if row[28].lower()=='true' else False,
-                    )
+                    runs_from = True if row[28].lower()=='true' else False,)
