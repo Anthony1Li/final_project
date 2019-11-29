@@ -37,8 +37,8 @@ def edit(request, unique_squirrel_id):
       if form.is_valid():
          form.save()
          return redirect("/myapp/sightings/")
-  form = squirrelForm(instance=edit_sighting)
-  return render(request, "myapp/edit.html", {"form": form, "unique_squirrel_id":unique_squirrel_id})
+   form = squirrelForm(instance=edit_sighting)
+   return render(request, "myapp/edit.html", {"form": form, "unique_squirrel_id":unique_squirrel_id})
 
 def add(request):
    if request.method == "POST":
