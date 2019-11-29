@@ -10,7 +10,7 @@ from .models import squirrel_data
 
 # Create your views here.
 def home(request):
-	return render(request, 'myapp/home.html', {})
+    return render(request, 'myapp/home.html', {})
 
 def map(request):
     map_squirrel = squirrel_data.objects.all()[:100]
