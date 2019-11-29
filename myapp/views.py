@@ -31,14 +31,14 @@ def sightings(request):
 
 
 def edit(request, unique_squirrel_id):
-  edit_sighting= squirrel_data.objects.filter(unique_squirrel_id=unique_squirrel_id).first()
-  if request.method == "POST":
-    form = squirrelForm(request.POST, instance=edit_sighting)
-    if form.is_valid():
-      form.save()
-      return redirect("/myapp/sightings/")
-  form = squirrelForm(instance=edit_sighting)
-  return render(request, "myapp/edit.html", {"form": form, "unique_squirrel_id":unique_squirrel_id})
+   edit_sighting= squirrel_data.objects.filter(unique_squirrel_id=unique_squirrel_id).first()
+   if request.method == "POST":
+      form = squirrelForm(request.POST, instance=edit_sighting)
+      if form.is_valid():
+         form.save()
+         return redirect("/myapp/sightings/")
+   form = squirrelForm(instance=edit_sighting)
+   return render(request, "myapp/edit.html", {"form": form, "unique_squirrel_id":unique_squirrel_id})
 
 def add(request):
    if request.method == "POST":
@@ -54,13 +54,6 @@ def delete(request, unique_squirrel_id):
    del_sighting = squirrel_data.objects.filter(unique_squirrel_id=unique_squirrel_id)
    del_sighting.delete()
    return redirect(reverse('myapp:sightings'))
-
-# def delete(request, unique_squirrel_id):
-#    del_sighting = squirrel_data.objects.filter(unique_squirrel_id=unique_squirrel_id)
-#    if request.method == 'POST':
-#       del_sighting.delete()
-#       return redirect("/myapp/sightings/")
-#    return render(request, 'myapp/delete.html', {'del_sighting': del_sighting})
 
 def stat(request):
    sq_data=squirrel_data.objects.all()
