@@ -6,7 +6,7 @@
 </head>
 <body style="background-color:powderblue;">
 <center><h2>Sightings of Squirrels</h2></center>
-<center><a href="/myapp/sightings/add">add a new sighting</a></center>
+<center><a href="/sightings/add">add a new sighting</a></center>
 <br>
 <table border="1" class="table table-bordered">
     <thead style="background-color:cadetblue;">
@@ -39,9 +39,10 @@
     <tbody  style="background-color:rgb(219, 234, 236);">
     {% for row in users %}
     <tr>
-        <td><a href="/myapp/sightings/{{row.unique_squirrel_id}}/">edit</a></td>
-        <td><a href="/myapp/sightings/{{row.unique_squirrel_id}}/delete/">delete</a></td>
+        <td><a href="/sightings/{{row.unique_squirrel_id}}/">edit</a></td>
+        <td><a href="/sightings/{{row.unique_squirrel_id}}/delete/">delete</a></td>
         <td>{{row.latitude}}</td>
+        
         <td>{{row.longitude}}</td>
         <td>{{row.unique_squirrel_id}}</td>
         <td>{{row.shift}}</td>

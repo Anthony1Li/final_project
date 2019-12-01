@@ -4,11 +4,11 @@ from . import views
 
 app_name = 'sightings'
 urlpatterns = [
-    path('', views.home, name = 'home'),
+    path('', views.sightings, name = 'sightings'),
+    path('home/', views.home, name = 'home'),
     path('map/', views.map, name = 'map'),
-    path('sightings/', views.sightings, name = 'sightings'),
-    path('sightings/add/', views.add, name = 'add'),
-    path('sightings/stat/', views.stat, name = 'stat'),
-    path('sightings/<str:unique_squirrel_id>/', views.edit, name = 'edit'),
-    path('sightings/<str:unique_squirrel_id>/delete/', views.delete, name = 'delete'),
+    path('add/', views.add, name = 'add'),
+    path('stats/', views.stats, name = 'stat'),
+    path('<str:unique_squirrel_id>/', views.edit, name = 'edit'),
+    path('<str:unique_squirrel_id>/delete/', views.delete, name = 'delete'),
 ]

@@ -55,7 +55,7 @@ def delete(request, unique_squirrel_id):
     del_sighting.delete()
     return redirect(reverse('sightings:sightings'))
 
-def stat(request):
+def stats(request):
     sq_data=squirrel_data.objects.all()
     a=len(sq_data)
     b=sq_data.aggregate(min_latitude=Min('latitude'),max_latitude=Max('latitude'),average_latitude=Avg('latitude'))
@@ -63,4 +63,4 @@ def stat(request):
     d=list(sq_data.values_list('shift').annotate(Count('shift')))
     e=list(sq_data.values_list('age').annotate(Count('age')))
     f=list(sq_data.values_list('primary_fur_color').annotate(Count('primary_fur_color')))
-    return render(request, 'sightings/stat.html', {"a":a,"b":b,"c":c,"d":d,"e":e,"f":f})
+    return render(request, 'sightings/stats.html', {"a":a,"b":b,"c":c,"d":d,"e":e,"f":f})
