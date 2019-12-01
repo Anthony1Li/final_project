@@ -32,23 +32,23 @@ python manage.py export_squirrel_data /path/to/file.csv
 	Will use the https://leafletjs.com/ library for plotting
 
 - A view that lists all squirrel sightings with links to edit and add sightings   
->Located at: /sightings   
+    >Located at: /sightings   
 Method: GET   
 A view to update a particular sighting   
 Located at: /sightings/<unique-squirrel-id>
 Method: POST  
  
 - A view to create a new sighting   
->Located at: /sightings/add   
+    >Located at: /sightings/add   
 Method: POST   
 
 - A view to delete a sighting    
->Located at: /sightings/<unique-squirrel-id>   
+    >Located at: /sightings/<unique-squirrel-id>   
 Method: DELETE   
 
 - A view with general stats about the sightings
 Particular stats are for you to decide but must include five of the attributes listed in the initial CSV download.    
->Located at: /sightings/stats   
+    >Located at: /sightings/stats   
 Method: GET   
 
 
