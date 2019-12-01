@@ -10,11 +10,11 @@ from .models import squirrel_data
 
 # Create your views here.
 def home(request):
-    return render(request, 'myapp/home.html', {})
+    return render(request, 'sightings/home.html', {})
 
 def map(request):
     map_squirrel = squirrel_data.objects.all()[:100]
-    return render(request, 'myapp/map.html', {"map_squirrel":map_squirrel})
+    return render(request, 'sightings/map.html', {"map_squirrel":map_squirrel})
 
 def sightings(request):
     sq_data=squirrel_data.objects.all()
@@ -27,35 +27,35 @@ def sightings(request):
         users = paginator.page(1)
     except EmptyPage:
         users = paginator.page(paginator.num_pages)
-    return render(request, 'myapp/sightings.html', {'users':users})
+    return render(request, 'sightings/sightings.html', {'users':users})
 
 
 def edit(request, unique_squirrel_id):
-    edit_sighting= squirrel_data.objects.filter(unique_squirrel_id=unique_squirrel_id).first()
+    edit_sighting = get_object_or_404(squirrel_data, unique_squirrel_id=unique_squirrel_id)
     if request.method == "POST":
         form = squirrelForm(request.POST, instance=edit_sighting)
         if form.is_valid():
             form.save()
-            return redirect("/myapp/sightings/")
+            return redirect("/sightings/")
     form = squirrelForm(instance=edit_sighting)
-    return render(request, "myapp/edit.html", {"form": form, "unique_squirrel_id":unique_squirrel_id})
+    return render(request, "sightings/edit.html", {"form": form, "unique_squirrel_id":unique_squirrel_id})
 
 def add(request):
     if request.method == "POST":
         form = squirrelForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/myapp/sightings/")
+            return redirect("/sightings/")
     else:
         form = squirrelForm()
-    return render(request, 'myapp/add.html', {'form':form})
+    return render(request, 'sightings/add.html', {'form':form})
 
 def delete(request, unique_squirrel_id):
     del_sighting = squirrel_data.objects.filter(unique_squirrel_id=unique_squirrel_id)
     del_sighting.delete()
-    return redirect(reverse('myapp:sightings'))
+    return redirect(reverse('sightings:sightings'))
 
-def stat(request):
+def stats(request):
     sq_data=squirrel_data.objects.all()
     a=len(sq_data)
     b=sq_data.aggregate(min_latitude=Min('latitude'),max_latitude=Max('latitude'),average_latitude=Avg('latitude'))
@@ -63,4 +63,4 @@ def stat(request):
     d=list(sq_data.values_list('shift').annotate(Count('shift')))
     e=list(sq_data.values_list('age').annotate(Count('age')))
     f=list(sq_data.values_list('primary_fur_color').annotate(Count('primary_fur_color')))
-    return render(request, 'myapp/stat.html', {"a":a,"b":b,"c":c,"d":d,"e":e,"f":f})
+    return render(request, 'sightings/stats.html', {"a":a,"b":b,"c":c,"d":d,"e":e,"f":f})

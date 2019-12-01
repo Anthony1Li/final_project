@@ -1,5 +1,5 @@
 from django.core.management import BaseCommand
-from myapp.models import squirrel_data
+from sightings.models import squirrel_data
 import csv
 import sys
 
