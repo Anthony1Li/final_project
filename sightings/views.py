@@ -31,12 +31,12 @@ def sightings(request):
 
 
 def edit(request, unique_squirrel_id):
-    edit_sighting= squirrel_data.objects.filter(unique_squirrel_id=unique_squirrel_id).first()
+    edit_sighting = get_object_or_404(squirrel_data, unique_squirrel_id=unique_squirrel_id)
     if request.method == "POST":
         form = squirrelForm(request.POST, instance=edit_sighting)
         if form.is_valid():
             form.save()
-            return redirect("/sightings/sightings/")
+            return redirect("/sightings/")
     form = squirrelForm(instance=edit_sighting)
     return render(request, "sightings/edit.html", {"form": form, "unique_squirrel_id":unique_squirrel_id})
 
@@ -45,7 +45,7 @@ def add(request):
         form = squirrelForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/sightings/sightings/")
+            return redirect("/sightings/")
     else:
         form = squirrelForm()
     return render(request, 'sightings/add.html', {'form':form})
