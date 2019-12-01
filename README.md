@@ -24,12 +24,13 @@ Export: A command that can be used to export the data in CSV format. The file pa
 ```sh
 python manage.py export_squirrel_data /path/to/file.csv
 ```
+
 ## API
 
 - A view that shows a map that displays the location of the squirrel sightings on an OpenStreets map.   
    >Located at: /map   
 	Method: GET   
-	Will use the https://leafletjs.com/ library for plotting
+	Will use the [leaflet](https://leafletjs.com/) library for plotting
 
 - A view that lists all squirrel sightings with links to edit and add sightings   
     >Located at: /sightings   
