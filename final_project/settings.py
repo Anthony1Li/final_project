@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sightings.apps.MyappConfig',
+    'sightings.apps.SightingsConfig',
+    'map.apps.MapConfig',
     'leaflet'
 ]
 
