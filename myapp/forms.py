@@ -31,7 +31,6 @@ class squirrelForm(forms.ModelForm):
         'indifferent',
         'runs_from']
         labels = {
-        "latitude": "latitude(cannot be blank)",
-        "longitude": "longitude(cannot be blank)",
-        "unique_squirrel_id": "unique_squirrel_id(cannot be blank)"
-        }
+            "latitude": "latitude(cannot be blank)",
+            "longitude": "longitude(cannot be blank)",
+            "unique_squirrel_id": "unique_squirrel_id(cannot be blank)"}
