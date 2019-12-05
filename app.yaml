@@ -1,0 +1,6 @@
+# [START django_app]
+entrypoint: gunicorn -b :$PORT final_project.wsgi:application
+runtime: python37
+
+
+# [END django_app]
