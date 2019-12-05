@@ -27,34 +27,34 @@ python manage.py export_squirrel_data /path/to/file.csv
 
 ## API
 
-- ###Map View    
+### - Map View    
 [Map View](https://project-261004.appspot.com/map/)   is a view that shows a map that displays the location of the squirrel sightings on an OpenStreets map.   
     >Located at: /map   
 	 Method: GET   
 	 Use the [leaflet](https://leafletjs.com/) library for plotting   
 
-- ###Squirrel Lists View   
+### - Squirrel Lists View   
 [Lists View](https://project-261004.appspot.com/sightings/) is a view that lists all squirrel sightings with links to edit and add sightings   
     >Located at: /sightings   
 	Method: GET   
 	
-- ###Squirrel Update View   
+### - Squirrel Update View   
 [Update View](https://project-261004.appspot.com/sightings/13E-AM-1017-05/) is a view to update a particular sighting.    
     >Located at: /sightings/<unique-squirrel-id>   
 	Method: GET & POST   
 
  
-- ###Squirrel Create View   
+### - Squirrel Create View   
 [Create View](https://project-261004.appspot.com/sighitngs/add/) is a view to create a new sighting   
     >Located at: /sightings/add   
 	Method: GET & POST   
 
-- ###Squirrel Delete View   
+### - Squirrel Delete View   
 [Delete View](https://project-261004.appspot.com/sightings/13E-AM-1017-05/) is a view to delete a sighting    
     >Located at: /sightings/<unique-squirrel-id>   
 	Method: DELETE   
 
-- ###Squirrel Stats View   
+### - Squirrel Stats View   
 [Stats View](https://project-261004.appspot.com/sightings/stats/) is a view with general stats about the sightings
 Stats include five of the attributes listed in the initial CSV download.    
     >Located at: /sightings/stats   
