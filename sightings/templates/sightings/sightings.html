@@ -9,7 +9,7 @@
     <center>
       <h2>Sightings of Squirrels</h2></center>
     <center>
-      <a href="/sightings/add">add a new sighting</a></center>
+      <a href="/sightings/add">Add A New Sighting</a></center>
     <br>
     <table border="1" class="table table-bordered">
       <thead style="background-color:cadetblue;">
@@ -43,7 +43,7 @@
         <tr>
           <td>{{row.latitude}}</td>
           <td>{{row.longitude}}</td>
-          <td>{{row.unique_squirrel_id}}</td>
+          <td><a href="/sightings/{{row.unique_squirrel_id}}/">{{row.unique_squirrel_id}}</a></td>
           <td>{{row.shift}}</td>
           <td>{{row.date}}</td>
           <td>{{row.age}}</td>
