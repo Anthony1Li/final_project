@@ -9,13 +9,6 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import squirrel_data
 
 # Create your views here.
-def home(request):
-    return render(request, 'sightings/home.html', {})
-
-def map(request):
-    map_squirrel = squirrel_data.objects.all()[:100]
-    return render(request, 'sightings/map.html', {"map_squirrel":map_squirrel})
-
 def sightings(request):
     sq_data=squirrel_data.objects.all()
     page = request.GET.get('page', 1)
