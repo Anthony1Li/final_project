@@ -51,9 +51,19 @@
         <!-- L.Icon.Default.prototype.options.shadowSize = 15; -->
         <!-- L.Icon.Default.prototype.options.shadowAnchor = [0, 0]; -->
 
+        var first = true;
+
         {% for sighting in map_squirrel.all %}
             var point_lat_lon = [{{sighting.longitude}}, {{sighting.latitude}}]
-            var maker = L.marker(point_lat_lon).addTo(map);
+            var maker_text = "Longitude: {{sighting.longitude}} <br>Latitude: {{sighting.latitude}} <br>Unique squirrel ID: {{sighting.unique_squirrel_id}}<br><a href='/sightings/{{sighting.unique_squirrel_id}}'>Link to Squirrel</a>"
+
+            var maker = L.marker(point_lat_lon).addTo(map)
+                .bindPopup(maker_text);
+
+            if (first == true) {
+                first = false;
+                maker.openPopup();
+            }
         {% endfor %}
     </script>
   </body>
