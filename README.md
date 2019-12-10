@@ -94,7 +94,7 @@ UNIs: [**[jl5551]**](https://github.com/Anthony1Li), [**[hw2753]**](https://gith
 
 [**Link**](https://project-261004.appspot.com/sightings) to our Squirrel Tracker application.
 
-## Clone with HTTPS
+## Google App Engine
 
-Use Git or checkout with SVN using the web URL.
-<https://github.com/Anthony1Li/final_project.git>
+We build highly scalable applications on a fully managed serverless platform GAE.
+<https://project-261004.appspot.com/sightings>
