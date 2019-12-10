@@ -25,7 +25,7 @@ Export: A command that can be used to export the data in CSV format. The file pa
 python manage.py export_squirrel_data /path/to/file.csv
 ```
 
-## API
+## Views
 
 ### Map View    
 [Map View](https://project-261004.appspot.com/map/)   is a view that shows a map that displays the location of the squirrel sightings on an OpenStreets map.   
@@ -37,13 +37,13 @@ Use the [leaflet](https://leafletjs.com/) library for plotting
 [Lists View](https://project-261004.appspot.com/sightings/) is a view that lists all squirrel sightings with links to edit and add sightings   
 >Located at: /sightings   
 	Method: GET   
-	
+
 ### Squirrel Update View   
 [Update View](https://project-261004.appspot.com/sightings/13E-AM-1017-05/) is a view to update a particular sighting.    
 >Located at: /sightings/<unique-squirrel-id>   
 	Method: GET & POST   
 
- 
+
 ### Squirrel Create View   
 [Create View](https://project-261004.appspot.com/sighitngs/add/) is a view to create a new sighting   
 >Located at: /sightings/add   
@@ -65,12 +65,11 @@ Method: GET
 ## Dependencies
 - [Django](https://www.djangoproject.com)
 - [Django-Leaflet](https://django-leaflet.readthedocs.io/en/latest/)  
- 
+
 More information in [**Requeirments**](https://github.com/Anthony1Li/final_project/blob/master/requirements.txt)
 
 ## Documentation
-The official description for this project is 
-[**Squirrel Tracker**](https://docs.google.com/document/d/1SPv3fMDKiemrR86rD-S9ecvI2npz3PljDzwCfxK2x5g/edit)
+The official description for this project is [**Squirrel Tracker**](https://docs.google.com/document/d/1SPv3fMDKiemrR86rD-S9ecvI2npz3PljDzwCfxK2x5g/edit)
 
 ## Background
 Eccentric billionaire Joffrey Hosencratz just purchased the web development company you work for. You’ve met him once in an elevator and he was impressed with your skill in developing web applications with the ``Django`` framework. He also relayed that his most recent trip to Sedona, AZ has left him in a bit of trouble. See, he fancies the show Rick and Morty and a particular scene coupled with a traumatic childhood squirrel experience and a bad crystal bath experience in Sedona as left him wanting. 
@@ -80,8 +79,7 @@ He would like to start keeping track of all the known squirrels and plans to sta
 
 
 ## Discussion and Development
-Most development discussion is taking place on github in this repo.
-
+Most development discussion is taking place on github in this [**Repo**](https://github.com/Anthony1Li/final_project).
 
 
 ## Contributors
@@ -95,3 +93,8 @@ Contributors: Jiyao Li, Hanyu Wu
 UNIs: [**[jl5551]**](https://github.com/Anthony1Li), [**[hw2753]**](https://github.com/harrywoo)
 
 [**Link**](https://project-261004.appspot.com/sightings) to our Squirrel Tracker application.
+
+## Clone with HTTPS
+
+Use Git or checkout with SVN using the web URL.
+<https://github.com/Anthony1Li/final_project.git>
